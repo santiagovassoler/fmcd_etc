@@ -1,6 +1,11 @@
 defmodule FmcdEtc.FileHandler do
   alias FmcdEtc.{Flight, Hotel, Train}
 
+  @doc """
+   Using Flow library we can get more performance because of its concurrency
+   Probably an overkill for this project, it will all dpends how big the file
+   cold get, otherwise using Stream will be enough.
+  """
   def handle_file(file_stream) do
     case File.exists?(file_stream) do
       true ->
